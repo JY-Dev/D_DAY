@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:id="@+id/parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#000000"
+        tools:context=".Activty.MainActivity">
+
+
+<LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    
+    <EditText
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:maxLines="3"
+            android:background="@null"
+            android:textColorHint="@color/colorwhiteopa50"
+            android:textColor="@color/colorwhite"
+            android:text=""
+            android:layout_marginTop="69dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/main_text_hint">
+        <requestFocus />
+    </EditText>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorwhite"
+                    android:text="@string/date"/>
+
+
+        <TextView
+                android:id="@+id/datepicker_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/input_date"
+                android:layout_alignParentEnd="true"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorwhite"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="21dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start_one"
+                android:layout_gravity="center"
+                android:textColor="@color/colorwhite"
+                android:textSize="18sp"/>
+
+        <ToggleButton
+                android:id="@+id/toogle_btn"
+                android:layout_width="48dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/toggle_sel"
+                android:text=""
+                android:textOff=""
+                android:textOn=""
+                android:enabled="false"
+                android:checked="false"/>
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+
+        <TextView
+                android:id="@+id/no_repeat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="23dp"
+                android:text="@string/no_repeat"
+                android:textColor="@drawable/text_selector"
+                android:textSize="18sp"/>
+
+        <View
+                android:layout_width="2dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="23dp"
+                android:background="@color/colorwhiteopa50"
+                />
+
+        <TextView
+                android:id="@+id/every_year_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="23dp"
+                android:text="@string/every_year"
+                android:textColor="@drawable/text_selector"
+                android:textSize="18sp"/>
+
+        <View
+                android:layout_width="2dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="23dp"
+                android:background="@color/colorwhiteopa50"
+                />
+
+        <TextView
+                android:id="@+id/every_month_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="23dp"
+                android:text="@string/every_month"
+                android:textColor="@drawable/text_selector"
+                android:textSize="18sp"/>
+
+    </LinearLayout>
+
+
+
+    
+</LinearLayout>
+
+    <ImageButton
+            android:id="@+id/next_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="27dp"
+            android:background="@drawable/btn_next"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+</RelativeLayout>

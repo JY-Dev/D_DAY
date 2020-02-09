@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">D_DAY</string>
+    <string name="main_text_hint">제목을 입력해주세요.제목은 최대 3줄까지 가능합니다 :)</string>
+    <string name="date">날짜</string>
+    <string name="start_one">1일부터 시작</string>
+    <string name="solor_calendar">양력</string>
+    <string name="lunar_calendar">음력</string>
+    <string name="no_repeat">반복없음</string>
+    <string name="every_year">매년</string>
+    <string name="every_month">매월</string>
+    <string name="permission_1">[설정] > [권한] 에서 권한을 허용할 수 있습니다.</string>
+    <string name="permission_2">사진 및 파일을 저장하기 위하여 접근 권한이 필요합니다.</string>
+    <string name="no_title">제목을 입력해주세요!!</string>
+    <string name="no_title_date">제목과 날짜를 입력해주세요!!</string>
+    <string name="no_date">날짜를 입력해주세요!!</string>
+    <string name="input_date">날짜 선택</string>
+</resources>
