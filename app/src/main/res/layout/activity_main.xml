@@ -8,12 +8,20 @@
         android:background="#000000"
         tools:context=".Activty.MainActivity">
 
-
 <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+    <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_id">
+    </com.google.android.gms.ads.AdView>
     
     <EditText
             android:id="@+id/title_tv"
@@ -162,4 +170,6 @@
             android:background="@drawable/btn_next"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"/>
+
+
 </RelativeLayout>

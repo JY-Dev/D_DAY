@@ -1,8 +1,10 @@
 package com.jaeyoungkim.app.d_day.Activty
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.jaeyoungkim.app.d_day.PageShowAdapter
 import com.jaeyoungkim.app.d_day.R
 import kotlinx.android.synthetic.main.activity_show.*
@@ -15,6 +17,10 @@ class ShowActivity : AppCompatActivity() {
 
         val pagerAdapter = PageShowAdapter(this)
         viewPager.adapter = pagerAdapter
+        MobileAds.initialize(this) {}
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
         if (pagerAdapter.count == 0){
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

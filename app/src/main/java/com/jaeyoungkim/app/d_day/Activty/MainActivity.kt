@@ -1,12 +1,16 @@
 package com.jaeyoungkim.app.d_day.Activty
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Context
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.jaeyoungkim.app.d_day.DataProcess
 import com.jaeyoungkim.app.d_day.Dialog.DatePickerDialog
 import com.jaeyoungkim.app.d_day.Format
@@ -29,6 +33,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this) {}
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+        val adView = AdView(this)
+        adView.adSize = AdSize.BANNER
+
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         tv_func = Tv_func()
         if (intent.extras!=null) modify = intent.extras.getInt("modify")

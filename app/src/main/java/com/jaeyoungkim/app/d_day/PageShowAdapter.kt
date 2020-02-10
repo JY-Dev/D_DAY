@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 import com.jaeyoungkim.app.d_day.Activty.MainActivity
 import com.jaeyoungkim.app.d_day.Activty.SettingActivity
@@ -14,10 +14,10 @@ import com.jaeyoungkim.app.d_day.Dialog.MenuDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import android.graphics.BitmapFactory
 import android.app.PendingIntent
-import android.support.v4.content.ContextCompat.getSystemService
+import androidx.core.content.ContextCompat.getSystemService
 import android.widget.*
 
 

@@ -14,4 +14,7 @@
     <string name="no_title_date">제목과 날짜를 입력해주세요!!</string>
     <string name="no_date">날짜를 입력해주세요!!</string>
     <string name="input_date">날짜 선택</string>
+    <string name="admob_appid">ca-app-pub-6198620479949991~6027037244</string>
+    <string name="banner_id">ca-app-pub-6198620479949991/8600202026</string>
+    <string name="forward_id">ca-app-pub-6198620479949991/6271769192</string>
 </resources>

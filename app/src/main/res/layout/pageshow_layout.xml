@@ -7,6 +7,17 @@
         android:layout_height="match_parent"
         tools:context=".Activty.SettingActivity">
 
+    <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_id">
+    </com.google.android.gms.ads.AdView>
+
     <ImageView
             android:id="@+id/img_layout"
             android:layout_width="match_parent"
@@ -65,7 +76,8 @@
                     android:id="@+id/noti_btn"
                     android:layout_marginStart="50dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
 
         </LinearLayout>
 

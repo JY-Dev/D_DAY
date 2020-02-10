@@ -1,7 +1,7 @@
 package com.jaeyoungkim.app.d_day.Activty
 
 import android.Manifest
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_setting.*
 import java.util.*
@@ -13,15 +13,18 @@ import java.io.File
 import android.net.Uri
 import android.os.Environment
 import android.widget.Toast
-import android.support.v4.content.FileProvider
+import androidx.core.content.FileProvider
 import java.io.IOException
 import java.text.SimpleDateFormat
 import android.app.Activity
 import android.content.Context
+import com.google.android.gms.ads.*
 import com.jaeyoungkim.app.d_day.DataProcess
 import com.jaeyoungkim.app.d_day.Dialog.ImgSelDialog
 import com.jaeyoungkim.app.d_day.Format
 import com.jaeyoungkim.app.d_day.R
+
+
 
 
 class SettingActivity : AppCompatActivity() {
@@ -44,6 +47,20 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
 
+        MobileAds.initialize(this) {}
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+        val adView = AdView(this)
+        adView.adSize = AdSize.BANNER
+
+        val mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = resources.getString(R.string.forward_id)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+
+
+
+
         title = intent.getStringExtra("title")
         selRepeat = intent.getStringExtra("selRepeat")
         toggleData = intent.getBooleanExtra("toggleData",true)
@@ -60,6 +77,7 @@ class SettingActivity : AppCompatActivity() {
             tedPermission(this)
         }
         sel_complete_btn.setOnClickListener {
+
             val dataMutable = dataProcess.dataLoad(this)
             if (dataMutable!=null){
                 // 수정할경우
@@ -98,6 +116,10 @@ class SettingActivity : AppCompatActivity() {
             val intent = Intent(this, ShowActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
+            if (mInterstitialAd.isLoaded){
+                mInterstitialAd.show()
+            }
+
         }
     }
 
