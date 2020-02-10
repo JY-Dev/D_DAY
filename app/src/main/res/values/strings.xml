@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">D_DAY</string>
+    <string name="app_name">Memory Day</string>
     <string name="main_text_hint">제목을 입력해주세요.제목은 최대 3줄까지 가능합니다 :)</string>
     <string name="date">날짜</string>
     <string name="show_head">상단바에 고정</string>

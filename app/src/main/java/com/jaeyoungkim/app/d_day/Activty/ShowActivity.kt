@@ -3,6 +3,7 @@ package com.jaeyoungkim.app.d_day.Activty
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.jaeyoungkim.app.d_day.PageShowAdapter
@@ -15,6 +16,7 @@ class ShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show)
 
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val pagerAdapter = PageShowAdapter(this)
         viewPager.adapter = pagerAdapter
         MobileAds.initialize(this) {}

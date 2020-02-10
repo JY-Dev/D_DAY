@@ -29,13 +29,19 @@
     <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/calendar"/>
+            android:background="@drawable/wedding_photo"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="20dp"
               android:textStyle="bold"
               android:textSize="50sp"
-              android:text="D-DAY"/>
+              android:text="MEMORY"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textStyle="bold"
+              android:textSize="50sp"
+              android:text="DAY"/>
 
 </LinearLayout>
