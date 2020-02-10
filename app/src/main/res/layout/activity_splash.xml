@@ -21,7 +21,7 @@
               android:layout_marginTop="10dp"
               android:textStyle="bold"
               android:textSize="30sp"
-              android:text="계속 기억하자!"
+              android:text="기억하고 싶은가요?"
               android:layout_marginBottom="50dp"/>
 
 

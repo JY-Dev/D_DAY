@@ -29,7 +29,7 @@
             android:layout_marginTop="69dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="30dp"
             android:hint="@string/main_text_hint">
         <requestFocus />
     </EditText>
@@ -39,16 +39,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginBottom="30dp">
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/colorwhite"
-                    android:text="@string/date"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorwhite"
+                android:text="@string/date"/>
 
 
         <TextView
@@ -75,10 +75,10 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/start_one"
+                android:text="@string/show_head"
                 android:layout_gravity="center"
                 android:textColor="@color/colorwhite"
-                android:textSize="18sp"/>
+                android:textSize="22sp"/>
 
         <ToggleButton
                 android:id="@+id/toogle_btn"
@@ -94,14 +94,12 @@
                 android:checked="false"/>
 
     </RelativeLayout>
-
-
-
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp">
 
 
         <TextView
@@ -111,7 +109,7 @@
                 android:layout_marginEnd="23dp"
                 android:text="@string/no_repeat"
                 android:textColor="@drawable/text_selector"
-                android:textSize="18sp"/>
+                android:textSize="22sp"/>
 
         <View
                 android:layout_width="2dp"
@@ -128,7 +126,7 @@
                 android:layout_marginEnd="23dp"
                 android:text="@string/every_year"
                 android:textColor="@drawable/text_selector"
-                android:textSize="18sp"/>
+                android:textSize="22sp"/>
 
         <View
                 android:layout_width="2dp"
@@ -145,9 +143,10 @@
                 android:layout_marginEnd="23dp"
                 android:text="@string/every_month"
                 android:textColor="@drawable/text_selector"
-                android:textSize="18sp"/>
+                android:textSize="22sp"/>
 
     </LinearLayout>
+
 
 
 

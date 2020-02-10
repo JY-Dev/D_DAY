@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.jaeyoungkim.app.d_day.DataProcess
 import com.jaeyoungkim.app.d_day.Dialog.DatePickerDialog
 import com.jaeyoungkim.app.d_day.Format
 import com.jaeyoungkim.app.d_day.R
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private var toggleData = false
     private var selRepeat = ""
     private lateinit var tv_func : Tv_func
+    private var modify = -1
+    private var dataProcess = DataProcess()
 
     private val format = Format()
     private lateinit var imm : InputMethodManager
@@ -28,9 +31,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         tv_func = Tv_func()
+        if (intent.extras!=null) modify = intent.extras.getInt("modify")
 
         //초기셋팅
         init()
+        modifyCheck()
         //데이트피커 클릭리스너
         datepicker_tv.setOnClickListener {
 //            datePicker().show()
@@ -46,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("selRepeat",selRepeat)
                 intent.putExtra("toggleData",toggleData)
                 intent.putExtra("cal",cal.timeInMillis)
+                intent.putExtra("modify",modify)
                 startActivity(intent)
             } else {
                 if (title_tv.text.toString()==""&&datepicker_tv.text.toString()==resources.getString(R.string.input_date)) Toast.makeText(this,resources.getString(R.string.no_title_date),Toast.LENGTH_SHORT).show()
@@ -69,35 +75,20 @@ class MainActivity : AppCompatActivity() {
 
         //반복없음 리스너
         no_repeat_tv.setOnClickListener {
-            no_repeat_tv.isSelected = true
-            every_year_tv.isSelected = false
-            every_month_tv.isSelected = false
-            selRepeat = no_repeat_tv.text.toString()
-            imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+            checkedNoRepeat()
         }
 
         //매년 리스너
         every_year_tv.setOnClickListener {
-            no_repeat_tv.isSelected = false
-            every_year_tv.isSelected = true
-            every_month_tv.isSelected = false
-            selRepeat = every_year_tv.text.toString()
-            imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+            checkedEveryYear()
         }
 
         //매월 리스너
         every_month_tv.setOnClickListener {
-            no_repeat_tv.isSelected = false
-            every_year_tv.isSelected = false
-            every_month_tv.isSelected = true
-            selRepeat = every_month_tv.text.toString()
-            imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+            checkedEveryMonth()
         }
 
-        toogle_btn.setOnClickListener {
-            toggleData = toogle_btn.isChecked
-            imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
-        }
+
 
         parent_layout.setOnClickListener {
             imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
@@ -123,4 +114,44 @@ private fun setDate(year:Int , month:Int , day:Int){
      datepicker_tv.text = format.dateFormat1(cal)
 }
 
+    private fun modifyCheck(){
+        if (modify != -1){
+            imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+            val dataMutable = dataProcess.dataLoad(this)
+            if (dataMutable != null){
+                title_tv.setText(dataMutable[modify].title)
+                datepicker_tv.text = Format().dateFormat1(dataMutable[modify].calMil)
+                when(dataMutable[modify].selRepeat){
+                    "반복없음" -> checkedNoRepeat()
+                    "매년" -> checkedEveryYear()
+                    "매월" -> checkedEveryMonth()
+                }
+            }
+
+        }
+    }
+
+    private fun checkedNoRepeat(){
+        no_repeat_tv.isSelected = true
+        every_year_tv.isSelected = false
+        every_month_tv.isSelected = false
+        selRepeat = no_repeat_tv.text.toString()
+        imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+    }
+
+    private fun checkedEveryYear(){
+        no_repeat_tv.isSelected = false
+        every_year_tv.isSelected = true
+        every_month_tv.isSelected = false
+        selRepeat = every_year_tv.text.toString()
+        imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+    }
+
+    private fun checkedEveryMonth(){
+        no_repeat_tv.isSelected = false
+        every_year_tv.isSelected = false
+        every_month_tv.isSelected = true
+        selRepeat = every_month_tv.text.toString()
+        imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
+    }
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@drawable/roundsquarewhite"
+              android:paddingStart="30dp"
+              android:paddingEnd="30dp"
+              android:paddingTop="50dp"
+              android:paddingBottom="50dp"
+              android:gravity="center">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:text="삭제하시겠습니까?"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="삭제한 데이터는 복구할 수 없습니다."/>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/delete_btn"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/roundsquarerealgray"
+                android:layout_marginEnd="30dp"
+                android:text="삭제"/>
+
+        <Button
+                android:background="@drawable/roundsquarerealgray"
+                android:id="@+id/cancel_sel_btn"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="취소"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -2,7 +2,7 @@
     <string name="app_name">D_DAY</string>
     <string name="main_text_hint">제목을 입력해주세요.제목은 최대 3줄까지 가능합니다 :)</string>
     <string name="date">날짜</string>
-    <string name="start_one">1일부터 시작</string>
+    <string name="show_head">상단바에 고정</string>
     <string name="solor_calendar">양력</string>
     <string name="lunar_calendar">음력</string>
     <string name="no_repeat">반복없음</string>

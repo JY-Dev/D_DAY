@@ -37,7 +37,8 @@ class SettingActivity : AppCompatActivity() {
     private var mCurrentPhotoPath: String? = null
     private var imageUri: Uri? = null
     private var dataProcess = DataProcess()
-
+    private var dday = 0L
+    private var modify = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,13 +48,13 @@ class SettingActivity : AppCompatActivity() {
         selRepeat = intent.getStringExtra("selRepeat")
         toggleData = intent.getBooleanExtra("toggleData",true)
         calMil = intent.getLongExtra("cal",0)
-
+        modify = intent.getIntExtra("modify",-1)
 
         format = Format()
 
         init()
-
-        d_day_tv.text = format.dday(calMil).toString()
+        dday = format.dday(calMil,selRepeat)
+        d_day_tv.text = if (dday != 0L)format.ddayCheck(dday,d_day_sign).toString() else "DAY"
 
         img_sel_btn.setOnClickListener {
             tedPermission(this)
@@ -61,15 +62,26 @@ class SettingActivity : AppCompatActivity() {
         sel_complete_btn.setOnClickListener {
             val dataMutable = dataProcess.dataLoad(this)
             if (dataMutable!=null){
-                dataMutable.add(
-                    DataPage(
+                // 수정할경우
+                if (modify !=-1){
+                    dataMutable[modify] = DataPage(
                         title,
                         selRepeat,
                         toggleData,
                         calMil,
                         imageUri.toString()
                     )
-                )
+                } else {
+                    dataMutable.add(
+                        DataPage(
+                            title,
+                            selRepeat,
+                            toggleData,
+                            calMil,
+                            imageUri.toString()
+                        )
+                    )
+                }
                 dataProcess.dataSave(this,dataMutable)
             } else {
                 data.add(
@@ -86,13 +98,19 @@ class SettingActivity : AppCompatActivity() {
             val intent = Intent(this, ShowActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-
         }
     }
 
     private fun init(){
         title_tv.text = title
         seldate_tv.text = format.dateFormat1(calMil)
+        if (modify != -1){
+            val dataMutable = dataProcess.dataLoad(this)
+            if (dataMutable!=null) {
+                img_layout.setImageURI(Uri.parse(dataMutable[modify].imgUrl))
+                imageUri = Uri.parse(dataMutable[modify].imgUrl)
+            }
+        }
     }
 
     private fun tedPermission(context: Context) {

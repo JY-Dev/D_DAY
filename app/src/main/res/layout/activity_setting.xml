@@ -45,14 +45,15 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="50sp"
+                    android:textSize="45sp"
                     android:text="D"
                     android:textColor="@color/colorwhite"/>
 
             <TextView
+                    android:id="@+id/d_day_sign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="50sp"
+                    android:textSize="45sp"
                     android:text="+"
                     android:textColor="@color/colorwhite"/>
 
@@ -60,7 +61,7 @@
                     android:id="@+id/d_day_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="50sp"
+                    android:textSize="45sp"
                     android:text="3210"
                     android:textColor="@color/colorwhite"/>
 
@@ -73,6 +74,16 @@
                 android:textSize="18sp"
                 android:textColor="@color/colorwhite"
                 android:text="2017년 3월 29일"/>
+
+
+
+        <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/colorwhite"
+                android:text=""/>
 
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -92,11 +103,10 @@
                         android:layout_marginEnd="30dp"
                         android:background="@drawable/select_img"/>
 
-
                 <ImageButton
                         android:id="@+id/sel_complete_btn"
                         android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/select_finish"/>
 
 
