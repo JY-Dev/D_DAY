@@ -21,7 +21,7 @@ class ShowActivity : AppCompatActivity() {
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
-
+        line_indicator.setupWithViewPager(viewPager)
         if (pagerAdapter.count == 0){
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

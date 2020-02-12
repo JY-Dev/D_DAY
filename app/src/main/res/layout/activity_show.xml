@@ -15,6 +15,13 @@
             ads:adUnitId="@string/banner_id">
     </com.google.android.gms.ads.AdView>
 
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
     <androidx.viewpager.widget.ViewPager
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,6 +31,22 @@
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/viewPager"/>
 
+
+        <com.pm10.library.CircleIndicator
+                android:id="@+id/line_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_centerHorizontal="true"
+                app:p_gap="10dp"
+                app:p_lineHeight="20dp"
+                app:p_lineWidth="40dp"
+                app:p_strokeWidth="5dp"
+                app:p_defaultColor="@color/gray"
+                app:p_selectedColor="@color/colorwhite"
+                app:p_strokeColor="@color/colorwhite" />
+    </RelativeLayout>
 
 
 </LinearLayout>
