@@ -32,7 +32,7 @@ class PageShowAdapter(context: Context) : PagerAdapter() {
 
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        var dataMul = DataProcess().dataLoad(mContext)
+        val dataMul = DataProcess().dataLoad(mContext)
         var view: View? = null
         var dday = 0L
             // LayoutInflater를 통해 "/res/layout/page.xml"을 뷰로 생성.
@@ -40,23 +40,28 @@ class PageShowAdapter(context: Context) : PagerAdapter() {
             view = inflater.inflate(R.layout.pageshow_layout, container, false)
             val addPageBtn = view.findViewById<ImageButton>(R.id.add_page_btn)
             val menuBtn = view.findViewById<ImageButton>(R.id.menu_btn)
-            val notiBtn = view.findViewById<Button>(R.id.noti_btn)
             val tv1 = view.findViewById<TextView>(R.id.title_tv)
             val tv2 = view.findViewById<TextView>(R.id.seldate_tv)
             val tv_dday_sign = view.findViewById<TextView>(R.id.d_day_tv_sign)
             val tv_dday = view.findViewById<TextView>(R.id.d_day_tv)
             val img = view.findViewById<ImageView>(R.id.img_layout)
+            val toogleBtn = view.findViewById<ToggleButton>(R.id.toogle_btn)
 
             if (dataMul!=null){
                 dday = Format().dday(dataMul[position].calMil,dataMul[position].selRepeat)
                 tv1.text = dataMul[position].title
                 tv2.text = Format().dateFormat1(dataMul[position].calMil)
                 tv_dday.text = if (dday!=0L) Format().ddayCheck(dday,tv_dday_sign).toString() else "DAY"
+                toogleBtn.isChecked = dataMul[position].selToogle
                 img.setImageURI(Uri.parse(dataMul[position].imgUrl))
             }
 
-            notiBtn.setOnClickListener {
-                Noti().NotificationSomethings(mContext)
+            toogleBtn.setOnClickListener {
+                if (dataMul != null) dataMul[position].selToogle = toogleBtn.isChecked
+                DataProcess().dataSave(mContext,dataMul)
+                val intent = Intent(mContext, ShowActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                mContext.startActivity(intent)
             }
             addPageBtn.setOnClickListener {
                 val intent = Intent(mContext, MainActivity::class.java)

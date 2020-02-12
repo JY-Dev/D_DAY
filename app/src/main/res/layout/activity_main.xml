@@ -98,7 +98,6 @@
                 android:text=""
                 android:textOff=""
                 android:textOn=""
-                android:enabled="false"
                 android:checked="false"/>
 
     </RelativeLayout>

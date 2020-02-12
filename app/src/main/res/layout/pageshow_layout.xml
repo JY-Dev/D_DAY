@@ -17,7 +17,7 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="352dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@drawable/gradation_back_01"
             android:orientation="vertical"
@@ -34,41 +34,43 @@
                 android:textColor="@color/colorwhite"
                 android:text="레드벨벳의 리더아아아아"/>
 
-        <LinearLayout
-                android:layout_width="match_parent"
+
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="50sp"
-                    android:text="D"
-                    android:textColor="@color/colorwhite"/>
+                android:textSize="50sp"
+                android:text="D"
+                android:textColor="@color/colorwhite"/>
 
-            <TextView
-                    android:id="@+id/d_day_tv_sign"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="50sp"
-                    android:text="+"
-                    android:textColor="@color/colorwhite"/>
+        <TextView
+                android:id="@+id/d_day_tv_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:text="+"
+                android:textColor="@color/colorwhite"/>
 
-            <TextView
-                    android:id="@+id/d_day_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="50sp"
-                    android:text="3210"
-                    android:textColor="@color/colorwhite"/>
+        <TextView
+                android:id="@+id/d_day_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:text="3210"
+                android:textColor="@color/colorwhite"/>
 
-            <Button
-                    android:id="@+id/noti_btn"
-                    android:layout_marginStart="50dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"/>
 
-        </LinearLayout>
+    </LinearLayout>
+
+
+
+
 
         <TextView
                 android:id="@+id/seldate_tv"
@@ -78,13 +80,43 @@
                 android:textColor="@color/colorwhite"
                 android:text="2017년 3월 29일"/>
 
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="22sp"
+                    android:textColor="@color/colorwhite"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="20dp"
+                    android:text="알림"/>
+
+            <ToggleButton
+                    android:id="@+id/toogle_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/toggle_sel"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn=""
+                    android:checked="false"/>
+        </LinearLayout>
+
+
         <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="27dp">
 
             <LinearLayout
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">

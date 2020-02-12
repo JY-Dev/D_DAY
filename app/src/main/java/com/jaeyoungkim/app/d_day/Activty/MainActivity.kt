@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         //초기셋팅
         init()
         modifyCheck()
+
+
         //데이트피커 클릭리스너
         datepicker_tv.setOnClickListener {
 //            datePicker().show()
@@ -55,6 +57,9 @@ class MainActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
         }
 
+        toogle_btn.setOnClickListener {
+           toggleData = toogle_btn.isChecked
+        }
         next_btn.setOnClickListener {
             if (title_tv.text.toString()!=""&&datepicker_tv.text.toString()!=resources.getString(R.string.input_date)){
                 val intent = Intent(this, SettingActivity::class.java)
@@ -80,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         no_repeat_tv.isSelected = true
         every_year_tv.isSelected = false
         every_month_tv.isSelected = false
-
+        toggleData = toogle_btn.isChecked
 
         selRepeat = no_repeat_tv.text.toString()
 

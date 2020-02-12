@@ -68,4 +68,9 @@ class Format{
         return dday
     }
 
+    fun ddayCheck(dday : Long) : Long{
+        if (dday < 0) return Math.abs(dday)
+        return dday
+    }
+
 }
