@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tv_func : Tv_func
     private var modify = -1
     private var dataProcess = DataProcess()
-
+    private var backKeyPressedTime = 0L
     private val format = Format()
     private lateinit var imm : InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -170,4 +170,5 @@ private fun setDate(year:Int , month:Int , day:Int){
         selRepeat = every_month_tv.text.toString()
         imm.hideSoftInputFromWindow(title_tv.windowToken, 0)
     }
+
 }

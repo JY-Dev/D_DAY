@@ -59,9 +59,8 @@ class PageShowAdapter(context: Context) : PagerAdapter() {
             toogleBtn.setOnClickListener {
                 if (dataMul != null) dataMul[position].selToogle = toogleBtn.isChecked
                 DataProcess().dataSave(mContext,dataMul)
-                val intent = Intent(mContext, ShowActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                mContext.startActivity(intent)
+                if (dataMul!=null) Noti().RunNotification(mContext,position,toogleBtn.isChecked,dataMul[position].title,dataMul[position].calMil,dday)
+                notifyDataSetChanged()
             }
             addPageBtn.setOnClickListener {
                 val intent = Intent(mContext, MainActivity::class.java)
@@ -78,6 +77,7 @@ class PageShowAdapter(context: Context) : PagerAdapter() {
                     //삭제콜백
                     dataMul?.removeAt(position)
                     DataProcess().dataSave(mContext,dataMul)
+                    Noti().cancelNoti(mContext,position)
                     val intent = Intent(mContext, ShowActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     mContext.startActivity(intent)

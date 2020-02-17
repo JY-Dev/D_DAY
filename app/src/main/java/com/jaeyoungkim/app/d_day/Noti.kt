@@ -51,6 +51,11 @@ class Noti {
 
         val notification = mBuilder.build()
         notificationManager?.notify(NotificationID, notification)
-            if (!setUp) notificationManager?.cancel(NotificationID)
+            if (!setUp) cancelNoti(context,NotificationID)
+    }
+
+    fun cancelNoti(context: Context,notiID : Int){
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
+        notificationManager?.cancel(notiID)
     }
 }
