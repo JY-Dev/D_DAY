@@ -1,6 +1,5 @@
 # D_DAY
-- 디데이 앱
-- Kotlin + Room 이용
+- Kotlin 이용
 - MEMORY-DAY는 이미지가 독보적인 컨셉으로 만든 디데이 앱으로 생일, 결혼기념일 같은 각종 중요한 기념일들을 쉽게 기록할 수 있게 만들었습니다.
 
 ## Application
